@@ -12,6 +12,10 @@
 		1EBDC54A24A2791500C2F502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC54924A2791500C2F502 /* Assets.xcassets */; };
 		1EBDC54D24A2791500C2F502 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC54C24A2791500C2F502 /* Preview Assets.xcassets */; };
 		1EBDC55024A2791500C2F502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC54E24A2791500C2F502 /* Main.storyboard */; };
+		1EBDC55A24A27A0300C2F502 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC55824A27A0300C2F502 /* start.txt */; };
+		1EBDC55B24A27A0300C2F502 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC55924A27A0300C2F502 /* words.txt */; };
+		1EBDC55D24A27BC800C2F502 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC55C24A27BC800C2F502 /* Letter.swift */; };
+		1EBDC55F24A27D6E00C2F502 /* Bundle-WordLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		1EBDC54F24A2791500C2F502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EBDC55124A2791500C2F502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EBDC55224A2791500C2F502 /* Switcharoo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Switcharoo.entitlements; sourceTree = "<group>"; };
+		1EBDC55824A27A0300C2F502 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		1EBDC55924A27A0300C2F502 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		1EBDC55C24A27BC800C2F502 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-WordLoading.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +63,12 @@
 		1EBDC54424A2791400C2F502 /* Switcharoo */ = {
 			isa = PBXGroup;
 			children = (
+				1EBDC55824A27A0300C2F502 /* start.txt */,
+				1EBDC55924A27A0300C2F502 /* words.txt */,
 				1EBDC54524A2791400C2F502 /* AppDelegate.swift */,
 				1EBDC54724A2791400C2F502 /* ContentView.swift */,
+				1EBDC55C24A27BC800C2F502 /* Letter.swift */,
+				1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */,
 				1EBDC54924A2791500C2F502 /* Assets.xcassets */,
 				1EBDC54E24A2791500C2F502 /* Main.storyboard */,
 				1EBDC55124A2791500C2F502 /* Info.plist */,
@@ -133,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EBDC55024A2791500C2F502 /* Main.storyboard in Resources */,
+				1EBDC55A24A27A0300C2F502 /* start.txt in Resources */,
 				1EBDC54D24A2791500C2F502 /* Preview Assets.xcassets in Resources */,
+				1EBDC55B24A27A0300C2F502 /* words.txt in Resources */,
 				1EBDC54A24A2791500C2F502 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EBDC55F24A27D6E00C2F502 /* Bundle-WordLoading.swift in Sources */,
+				1EBDC55D24A27BC800C2F502 /* Letter.swift in Sources */,
 				1EBDC54824A2791400C2F502 /* ContentView.swift in Sources */,
 				1EBDC54624A2791400C2F502 /* AppDelegate.swift in Sources */,
 			);
