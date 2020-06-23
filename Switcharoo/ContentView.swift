@@ -39,7 +39,7 @@ struct ContentView: View {
                                     self.buttonFrames[number] = geo.frame(in: .global) //gets position of each letter once it loads up
                             }
                             }
-                        )
+                    )
                     
                     //dont let them move
                     
@@ -52,7 +52,7 @@ struct ContentView: View {
             // letter tray - 10 altenative
             HStack{
                 ForEach(0..<10){ number in
-                    Letter(text: self.tray[number])
+                    Letter(text: self.tray[number], onChanged: self.letterMoved)
                 }
             }
         }
@@ -76,9 +76,32 @@ struct ContentView: View {
             String("AAAAABBCCDDDDEEEEEEFGGHIIIJKLLLMMMMMNNNNOOOOPPPQRRRRSSSSTTTTUVWWXYZ".randomElement()!)
     }
     
-//    func letterMover (location: CGPoint, letter: String) -> DragState {
-//        
-//    }
+    //which button is our dragged button moving over right now
+    //letter -> their dragable letter
+    func letterMoved (location: CGPoint, letter: String) -> DragState {
+        
+        
+        // if let -> check if button is on the frame and if location are the same let match = index (which letter frame)
+        
+        if let match = buttonFrames.firstIndex(where: {
+            $0.contains(location)
+        }) {
+            
+            //if its the same letter being replaced
+            if activeLetters[match] == letter { return .bad}
+            
+            var testLeters = activeLetters
+            testLeters[match] = letter
+            let testWord = String(testLeters.joined())
+            if alllowedWords.contains(testWord) {
+                return .good
+            }else{
+                return .bad
+            }
+        }else{
+            return .unknown
+        }
+    }
 }
 
 
