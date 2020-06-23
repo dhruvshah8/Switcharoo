@@ -21,6 +21,7 @@ struct Letter: View {
     var index: Int
     
     var onChanged: ((CGPoint, String) -> DragState)?
+    var onEnded: ((CGPoint, Int, String) -> Void)?
     
     var body: some View {
         Image(text)
@@ -35,7 +36,10 @@ struct Letter: View {
                         self.dragState = self.onChanged?($0.location, self.text) ?? .unknown
                         
                 }
-                .onEnded{ _ in
+                .onEnded{
+                    if self.dragState == .good {
+                        self.onEnded?($0.location, self.index, self.text)
+                    }
                     self.dragAmount = .zero
                 }
         )

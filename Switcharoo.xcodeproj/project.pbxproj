@@ -16,6 +16,9 @@
 		1EBDC55B24A27A0300C2F502 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1EBDC55924A27A0300C2F502 /* words.txt */; };
 		1EBDC55D24A27BC800C2F502 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC55C24A27BC800C2F502 /* Letter.swift */; };
 		1EBDC55F24A27D6E00C2F502 /* Bundle-WordLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */; };
+		1EBDC56124A2A54E00C2F502 /* GameNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC56024A2A54E00C2F502 /* GameNumber.swift */; };
+		1EBDC56324A2A85400C2F502 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC56224A2A85400C2F502 /* ResetButton.swift */; };
+		1EBDC56524A2AA5E00C2F502 /* ShuffleTray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDC56424A2AA5E00C2F502 /* ShuffleTray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		1EBDC55924A27A0300C2F502 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		1EBDC55C24A27BC800C2F502 /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 		1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-WordLoading.swift"; sourceTree = "<group>"; };
+		1EBDC56024A2A54E00C2F502 /* GameNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNumber.swift; sourceTree = "<group>"; };
+		1EBDC56224A2A85400C2F502 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		1EBDC56424A2AA5E00C2F502 /* ShuffleTray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleTray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,9 @@
 				1EBDC55924A27A0300C2F502 /* words.txt */,
 				1EBDC54524A2791400C2F502 /* AppDelegate.swift */,
 				1EBDC54724A2791400C2F502 /* ContentView.swift */,
+				1EBDC56424A2AA5E00C2F502 /* ShuffleTray.swift */,
+				1EBDC56224A2A85400C2F502 /* ResetButton.swift */,
+				1EBDC56024A2A54E00C2F502 /* GameNumber.swift */,
 				1EBDC55C24A27BC800C2F502 /* Letter.swift */,
 				1EBDC55E24A27D6E00C2F502 /* Bundle-WordLoading.swift */,
 				1EBDC54924A2791500C2F502 /* Assets.xcassets */,
@@ -160,8 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EBDC55F24A27D6E00C2F502 /* Bundle-WordLoading.swift in Sources */,
+				1EBDC56524A2AA5E00C2F502 /* ShuffleTray.swift in Sources */,
+				1EBDC56324A2A85400C2F502 /* ResetButton.swift in Sources */,
 				1EBDC55D24A27BC800C2F502 /* Letter.swift in Sources */,
 				1EBDC54824A2791400C2F502 /* ContentView.swift in Sources */,
+				1EBDC56124A2A54E00C2F502 /* GameNumber.swift in Sources */,
 				1EBDC54624A2791400C2F502 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

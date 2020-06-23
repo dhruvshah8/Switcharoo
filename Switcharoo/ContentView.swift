@@ -15,16 +15,26 @@ struct ContentView: View {
     @State private var tray = [String](repeating: "Blank", count: 10)
     @State private var buttonFrames = [CGRect](repeating: .zero, count: 4)
     
+    @State private var timeRemaining = 100
+    @State private var score = 0
+    
+    
     //Set of Strings with starting words and possible words
     let alllowedWords = Bundle.main.words(from: "words.txt")
     let startWords = Bundle.main.words(from: "start.txt")
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     
     var body: some View {
         
         VStack(spacing: 20){
-            Image("Switcharoo")
-                .padding()
+            HStack {
+                GameNumber(text: "Time", value: timeRemaining)
+                Image("Switcharoo")
+                    .padding()
+                GameNumber(text: "Score", value: score)
+            }
             
             Spacer()
             
@@ -47,26 +57,49 @@ struct ContentView: View {
                 }
             }
             
+            ResetButton{
+                self.resetLetters(deductPoints: true)
+            }
+            
             Spacer()
             
             // letter tray - 10 altenative
             HStack{
                 ForEach(0..<10){ number in
-                    Letter(text: self.tray[number], index: number, onChanged: self.letterMoved)
+                    Letter(text: self.tray[number], index: number, onChanged: self.letterMoved, onEnded: self.letterDropped)
                 }
             }
+            
+            ShuffleTray{
+                self.tray.shuffle()
+            }
+            
         }
         .frame(width: 1024, height: 768)
         .background(Image("Background"))
         .onAppear(perform: startGame)
+    .allowsHitTesting(timeRemaining > 0)
+        .onReceive(timer) { value in
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            }
+        }
         
         
     }
     
     func startGame() {
+        resetLetters(deductPoints: false)
+    }
+    
+    func resetLetters(deductPoints: Bool) {
         let newWord = startWords.randomElement() ?? "CAPE"
         activeLetters = newWord.map(String.init) //convert word into array of string characters
         tray = (1...10).map { _ in self.randomLetter() } //chose 10 random letters for tray
+        
+        if deductPoints {
+            score -= 10
+        }
         
     }
     
@@ -111,9 +144,14 @@ struct ContentView: View {
             
             tray.remove(at: trayIndex)
             tray.append(randomLetter())
+            
+            timeRemaining += 2
+            score += 1
     }
     
-    }}
+    }
+    
+}
 
 
 struct ContentView_Previews: PreviewProvider {
