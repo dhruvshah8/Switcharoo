@@ -31,7 +31,7 @@ struct ContentView: View {
             // active letters
             HStack{
                 ForEach(0..<4) { number in
-                    Letter(text: self.activeLetters[number]).allowsHitTesting(false)
+                    Letter(text: self.activeLetters[number], index: number).allowsHitTesting(false)
                         // Geometry Reader: Allows us to know the position of the overlay in global space of the game - marks the area where the letter is places
                         .overlay(GeometryReader { geo in
                             Color.clear
@@ -52,7 +52,7 @@ struct ContentView: View {
             // letter tray - 10 altenative
             HStack{
                 ForEach(0..<10){ number in
-                    Letter(text: self.tray[number], onChanged: self.letterMoved)
+                    Letter(text: self.tray[number], index: number, onChanged: self.letterMoved)
                 }
             }
         }
@@ -102,7 +102,18 @@ struct ContentView: View {
             return .unknown
         }
     }
-}
+    
+    //if its a safe drop do this
+    func letterDropped(location: CGPoint, trayIndex: Int, letter: String){
+        if let match = buttonFrames.firstIndex(where: {
+            $0.contains(location) }) {
+            activeLetters[match] = letter
+            
+            tray.remove(at: trayIndex)
+            tray.append(randomLetter())
+    }
+    
+    }}
 
 
 struct ContentView_Previews: PreviewProvider {
@@ -110,3 +121,15 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+//Notes about the project
+
+//1. Checking when the tile is on top of the frame
+    // not a feature in swift ui unlike UI kit where you can see which element is underneath
+    //hence created a overlay ontop of the frames containing the location and checked if the location is the same
+
+//2. Sets vs Arrays
+    // For the large list of 4 letter words - it was put into a Set of strings rather than array
+    // This is because it is much faster when checking if words the user is trying to make exist
+    // Because sets are unordered and no duplicates .contains for a set can work much faster

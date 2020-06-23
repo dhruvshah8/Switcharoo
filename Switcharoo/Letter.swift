@@ -18,6 +18,7 @@ struct Letter: View {
     @State var dragAmount = CGSize.zero
     @State var dragState = DragState.unknown
     var text: String
+    var index: Int
     
     var onChanged: ((CGPoint, String) -> DragState)?
     
@@ -57,6 +58,6 @@ struct Letter: View {
 
 struct Letter_Previews: PreviewProvider {
     static var previews: some View {
-        Letter(text: "A")
+        Letter(text: "A", index: 0)
     }
 }
